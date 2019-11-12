@@ -1,4 +1,4 @@
-
+//task 1
 function my_compute_factorial_it(nb) {
     
     var factorial = 1;

@@ -1,3 +1,4 @@
+//task 3
 function my_compute_power_it(nb, p) {
     if(Number.isInteger(nb) && p >= 0) {
         var res = 1;

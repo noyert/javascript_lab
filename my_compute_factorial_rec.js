@@ -1,3 +1,4 @@
+//task 2
 function my_compute_factorial_rec (nb) {
     var factorial = null;
     if(Number.isInteger(nb) && nb > 0){
