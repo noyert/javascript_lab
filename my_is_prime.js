@@ -27,6 +27,6 @@ function my_is_prime(nb) {
 }
 
 var argv = require('minimist')(process.argv.slice(2));
-console.dir(argv._[0]);
+// console.dir(argv._[0]);
 
 my_is_prime(argv._[0]);

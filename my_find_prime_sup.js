@@ -1,6 +1,9 @@
 //task 7
 function my_find_prime_sup(nb){
     if(Number.isInteger(nb)){
+        if(nb==0){
+            console.log("2");
+        }
         for (var i = nb + 1;; i++) {
             var isPrime = true;
             for (var d = 2; d * d <= i; d++) {
@@ -21,6 +24,6 @@ function my_find_prime_sup(nb){
 }
 
 var argv = require('minimist')(process.argv.slice(2));
-console.dir(argv._[0]);
+// console.dir(argv._[0]);
 
 my_find_prime_sup(argv._[0]);

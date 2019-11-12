@@ -14,7 +14,7 @@ function my_compute_factorial_rec (nb) {
 }
 
 var argv = require('minimist')(process.argv.slice(2));
-console.dir(argv._[0]);
+// console.dir(argv._[0]);
 
 var result = my_compute_factorial_rec(argv._[0]);
 console.log(`Le résultat est ${result}`)

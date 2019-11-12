@@ -1,6 +1,6 @@
 //task 4
 function my_compute_power_rec(nb, p){
-    if(Number.isInteger(nb) && Number.isInteger(p)) {
+    if(Number.isInteger(nb) && Number.isInteger(nb)) {
         if(p == 0){
             return 1;
         } else {
@@ -13,7 +13,7 @@ function my_compute_power_rec(nb, p){
 }
 
 var argv = require('minimist')(process.argv.slice(2));
-console.dir(argv._[0]);
+// console.dir(argv._[0]);
 
 var result = my_compute_power_rec(argv._[0], argv._[1]);
 if(Number.isInteger(result)){
