@@ -1,6 +1,6 @@
 //task 3
 function my_compute_power_it(nb, p) {
-    if(Number.isInteger(nb) && p >= 0) {
+    if(Number.isInteger(nb) && Number.isInteger(p) && p >= 0) {
         var res = 1;
         for(var i=0; i<p; i++) {
             res *= nb;

@@ -1,6 +1,6 @@
 //task 4
 function my_compute_power_rec(nb, p){
-    if(Number.isInteger(nb)) {
+    if(Number.isInteger(nb) && Number.isInteger(p)) {
         if(p == 0){
             return 1;
         } else {
