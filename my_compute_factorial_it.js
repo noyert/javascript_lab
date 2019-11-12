@@ -9,7 +9,7 @@ function my_compute_factorial_it(nb) {
         console.log(`Le résultat est ${factorial}`)
         return factorial;
     } else {
-        console.log("Votre donnée n'est pas un nombre")
+        console.log("Votre donnée n'est pas un nombre entier")
         return 0;
     }
 }
