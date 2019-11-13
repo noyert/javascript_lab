@@ -1,14 +1,14 @@
-module.exports = function my_to_lower_case() {
-    let inputStr = this
+String.prototype.my_to_lower_case = function() {
+    let str = this.valueOf();
     var strResult = ""
-    for (var i = 0; i < inputStr.length; i++) {
+    for (var i = 0; i < str.length; i++) {
 
-        var letters = inputStr.charCodeAt(i)
+        var letters = str.charCodeAt(i)
 
         if (letters > 64 && letters < 91) {
             strResult += String.fromCharCode(letters + 32)
         } else {
-            strResult += inputStr.charAt(i)
+            strResult += str.charAt(i)
         }
     }
     return strResult
