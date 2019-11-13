@@ -19,22 +19,22 @@ var res3 = argv._[2]
 var res4 = argv._[3]
 var res5 = argv._[4]
 
-var sentence1 = 'The quick brown fox jumps over the lazy dog.'; 
+var sentence = 'The quick brown fox jumps over the lazy dog.'; 
 var index = 4;
-var sentence2 = 'The quick brown fox jumps over the lazy dog.'; 
 var word = 'fox';
+var position = 0;
 
 var result1 = res1.my_to_upper_case()
 var result2 = res2.my_to_lower_case()
 var result3 = res3.my_concat("is", "a", "great", "day.")
 var result4 = res4.my_char_at(index)
-var result5 = res5.my_includes(word)
+var result5 = res5.my_includes(word, position)
 
 // console.log("mellon".my_to_upper_case())
 // console.log("MELLON".my_to_lower_case())
 // console.log('It'.my_concat(' is',' a',' great',' day.'))
-// console.log('The character at index ' + index + ' is ' + sentence1.my_char_at(index))
-// console.log(`The word "${word}" ${sentence2.my_includes(word2)? 'is' : 'is not'} in the sentence`);
+// console.log('The character at index ' + index + ' is ' + sentence.my_char_at(index))
+console.log(`The word "${word}" ${sentence.my_includes(word)? 'is' : 'is not'} in the sentence`);
 
 if(typeof res1 === 'string'){
     console.log(`Résultat: ${result1}`)
