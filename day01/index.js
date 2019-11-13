@@ -6,11 +6,13 @@ require('./my_includes')
 require('./ is_empty')
 require('./my_insert')
 require('./my_split')
+require('./my_substr')
 
 var sentence = 'The quick brown fox jumps over the lazy dog.'; 
 var index = 4;
 var word = "fox";
 var position = 0;
+var str = 'Mozilla';
 
 console.log("mellon".my_to_upper_case())
 console.log("MELLON".my_to_lower_case())
@@ -21,6 +23,8 @@ console.log(`The sentence ${sentence.is_empty()? 'is' : 'is not'} empty`);
 console.log(sentence.my_insert(word, 16))
 var words = sentence.my_split(' ');
 console.log(words[3])
+console.log(str.my_substr(1, 2));
+
 
 // var argv = require('minimist')(process.argv.slice(2));
 // console.dir(argv._[0]);
