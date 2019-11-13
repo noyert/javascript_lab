@@ -6,10 +6,9 @@ String.prototype.my_char_at = function(index){
         for(var i=0; i<index+1; i++){
             letter = str[i]
         }
+        return letter;
     } else {
         console.log("Votre donnée n'est pas de type string")
         return;
     }
-    
-    return letter;
 }

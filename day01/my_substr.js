@@ -5,6 +5,9 @@ String.prototype.my_substr = function(début, lg){
         for(var i=début; i<=lg; i++){
             word += str[i]
         }
+        return word
+    } else {
+        console.log("Vos données ne sont pas de type string")
+        return;
     }
-    return word
 }

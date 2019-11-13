@@ -9,6 +9,10 @@ String.prototype.my_split = function(séparateur) {
                 words.push("");
             }
         }
+        return words
+    } else {
+        console.log("Vos données ne sont pas de type string")
+        return;
     }
-    return words
+    
 }

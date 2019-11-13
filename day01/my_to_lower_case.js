@@ -12,10 +12,9 @@ String.prototype.my_to_lower_case = function() {
                 strResult += str.charAt(i)
             }
         }
+        return strResult
     } else {
         console.log("Votre donnée n'est pas de type string")
         return;
     }
-    
-    return strResult
 }

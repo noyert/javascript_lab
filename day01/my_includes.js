@@ -17,10 +17,9 @@ String.prototype.my_includes = function(chaîneRecherchée, position) {
                 }
               }
         }
+        return false;
     } else {
         console.log("Vos données ne sont pas de type string")
         return;
     }
-    
-    return false;
 }

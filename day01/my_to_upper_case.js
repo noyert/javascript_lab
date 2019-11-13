@@ -5,11 +5,10 @@ String.prototype.my_to_upper_case = function() {
         for (i = 0; i < str.length; i++) {
             word += String.fromCharCode(str.charCodeAt(i) & 223);
         }
+        return word;
     } else {
         console.log("Votre donnée n'est pas de type string")
         return;
     }
-    
-    return word;
 }
 
