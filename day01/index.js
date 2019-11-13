@@ -5,6 +5,7 @@ require('./my_char_at')
 require('./my_includes')
 require('./ is_empty')
 require('./my_insert')
+require('./my_split')
 
 var sentence = 'The quick brown fox jumps over the lazy dog.'; 
 var index = 4;
@@ -18,6 +19,8 @@ console.log('The character at index ' + index + ' is ' + sentence.my_char_at(ind
 console.log(`The word "${word}" ${sentence.my_includes(word, position)? 'is' : 'is not'} in the sentence`);
 console.log(`The sentence ${sentence.is_empty()? 'is' : 'is not'} empty`);
 console.log(sentence.my_insert(word, 16))
+var words = sentence.my_split(' ');
+console.log(words[3])
 
 // var argv = require('minimist')(process.argv.slice(2));
 // console.dir(argv._[0]);
