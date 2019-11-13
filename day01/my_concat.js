@@ -1,8 +1,13 @@
 String.prototype.my_concat = function(...arguments){
     let str = this.valueOf();
-    var word = str + " ";
-    for(var i=0; i<arguments.length; i++){
-        word += arguments[i] + " ";
+    var word = str;
+    if(typeof str === 'string'){
+        for(var i=0; i<arguments.length; i++){
+            word += arguments[i];
+        }
+    } else {
+        console.log("Votre donnée n'est pas de type string")
+        return;
     }
     return word;
 }
