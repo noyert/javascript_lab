@@ -19,7 +19,7 @@ String.prototype.my_char_at = func4
 var result1 = res1.my_to_upper_case()
 var result2 = res2.my_to_lower_case()
 var result3 = res3.my_concat("is", "a", "great", "day.")
-var result4 = res4.my_char_at(1)
+var result4 = res4.my_char_at(0)
 
 // console.log("mellon".my_to_upper_case())
 // console.log("MELLON".my_to_lower_case())
