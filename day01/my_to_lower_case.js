@@ -1,4 +1,4 @@
-module.exports = function my_to_lower_case(){
+module.exports = function my_to_lower_case() {
     let inputStr = this
     var strResult = ""
     for (var i = 0; i < inputStr.length; i++) {
@@ -12,4 +12,4 @@ module.exports = function my_to_lower_case(){
         }
     }
     return strResult
- }
+}
