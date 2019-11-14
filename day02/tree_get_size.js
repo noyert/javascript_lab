@@ -1,6 +1,6 @@
-module.exports = function tree_is_empty(tree){
+module.exports = function tree_get_size(tree) {
     if (tree.data == null || tree.data == undefined) {
-        tree.data = 0
+        tree = newNode
         return
     }
     var nb = 0
