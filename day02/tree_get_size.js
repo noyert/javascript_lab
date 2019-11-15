@@ -1,6 +1,6 @@
 module.exports = function tree_get_size(tree) {
     if (tree.data == null || tree.data == undefined) {
-        tree = newNode
+        tree.data = 0
         return
     }
     var nb = 0
@@ -9,9 +9,10 @@ module.exports = function tree_get_size(tree) {
         current = current.left;
         nb++
     }
+    current = tree
     while(current !== null){
         current = current.right;
         nb++
     }
-    return nb+1
+    return nb-1
 }

@@ -1,17 +1,12 @@
 module.exports = function tree_get_deph(tree) {
     if (tree.data == null || tree.data == undefined) {
-        tree = newNode
+        tree.data = 0
         return
     }
-    var nb = 0
-    let current = tree
-    while (current !== null) {
-        current = current.left;
-        nb++
+    if(tree.left == null || tree.right == null){
+        return 1
     }
-    while(current !== null){
-        current = current.right;
-        nb++
-    }
-    return nb+1
+    l = tree_get_deph(tree.left)
+    r = tree_get_deph(tree.right)
+    return (1 + ((l > r) ? l : r));
 }
