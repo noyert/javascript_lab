@@ -4,26 +4,26 @@ module.exports = function tree_get_max_value(tree) {
         return
     }
     let current = tree
-    var max = 0
-    var lMax = current.data
-    var rMax = current.data
+    var min = 0
+    var lMin = current.data
+    var rMin = current.data
     while (current.left !== null) {
-        if (current.data < current.left.data) {
-            lMax = current.left.data
+        if (current.data > current.left.data) {
+            lMin = current.left.data
         }
         current = current.left;
     }
     current = tree
     while (current.right !== null) {
-        if (current.data < current.right.data) {
-            rMax = current.right.data
+        if (current.data > current.right.data) {
+            rMin = current.right.data
         }
         current = current.right;
     }
-    if(lMax > rMax){
-        max = lMax
+    if(lMin < rMin){
+        min = lMin
     } else {
-        max = rMax
+        min = rMin
     }
-    return max;
+    return min;
 }
