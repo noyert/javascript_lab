@@ -1,4 +1,4 @@
-module.exports = function tree_get_max_value(tree) {
+module.exports = function tree_get_min_value(tree) {
     if (tree.data == null || tree.data == undefined) {
         tree.data = 0
         return

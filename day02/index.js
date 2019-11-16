@@ -21,6 +21,8 @@ const tree_create_node = require('./tree_create_node')
 const tree_get_max_value = require('./tree_get_max_value')
 const tree_get_min_value = require('./tree_get_min_value')
 const tree_infix = require('./tree_infix')
+const tree_postfix = require('./tree_postfix')
+const tree_prefix = require('./tree_prefix')
 
 const data = 1
 // create the first node
@@ -39,6 +41,12 @@ const dataTree = 100
 const tree = new TreeNode(dataTree)
 tree.left = new TreeNode(200)
 tree.right = new TreeNode(300)
+// tree.right.right = new TreeNode(400)
+// tree.right.left = new TreeNode(500)
+// tree.right.right = new TreeNode("+")
+
+var infix = "ab+ef*g*-"; 
+const tree2 = new TreeNode()
 
 // console.log(`La taille de la liste est de ${list_get_size(list)}`)
 // list_dump(list)
@@ -57,6 +65,9 @@ tree.right = new TreeNode(300)
 // console.log(`The number of nodes in tree is ${tree_get_size(tree)}`)
 // console.log(`The deph of the tree is ${tree_get_deph(tree)}`)
 // console.log(tree_create_node(tree, 400))
+// console.log(tree_create_node(tree, 500))
 // console.log(`The max value is ${tree_get_max_value(tree)}`)
 // console.log(`The min value is ${tree_get_min_value(tree)}`)
 console.log(tree_infix(tree))
+// console.log(tree_postfix(tree2))
+// console.log(tree_prefix(tree2))
