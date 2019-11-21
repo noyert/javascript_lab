@@ -50,7 +50,6 @@ function bistro(str) {
             console.log("Votre nombre d'éléments à remplacer est supérieur à la taille du tableau")
             return tab
         }
-        console.log(tab)
         var newTab = []
         var counter = 0;
         for(var i=0; i<tab.length; i++){
@@ -64,10 +63,6 @@ function bistro(str) {
         }
         return newTab
     }
-
-    // var tab = ['jio', 'dxfd', 'fr', 'KL', 'gre']
-    // console.log(tab)
-    // spliceTab(tab, 1, 4, 'fezko')
 
     function round(res) {
         resString = `${res}`
@@ -86,33 +81,25 @@ function bistro(str) {
     }
 
     var elem = split(str)
-    console.log(elem)
 
     function priorityCalc(elem) {
         var calc = ""
         for (var i = 0; i < elem.length; i++) {
-            console.log(elem)
             if (elem[i] == '(') {
-                console.log("op ()")
-                console.log(elem[i + 2])
                 calc = calculate(elem[i + 1], elem[i + 2], elem[i + 3])
                 elem = spliceTab(elem, i, 5, calc)
                 i = 0
             }
         }
         for (var i = 0; i < elem.length; i++) {
-            console.log(elem)
             if (elem[i] == '*' || elem[i] == '/' || elem[i] == '%') {
-                console.log("op1")
                 calc = calculate(elem[i - 1], elem[i], elem[i + 1])
                 elem = spliceTab(elem, i - 1, 3, calc)
                 i = 0
             }
         }
         for (var i = 0; i < elem.length; i++) {
-            console.log(elem)
             if (elem[i] == '+' || elem[i] == '-') {
-                console.log("op2")
                 calc = calculate(elem[i - 1], elem[i], elem[i + 1])
                 elem = spliceTab(elem, i - 1, 3, calc)
                 i = 0
@@ -164,10 +151,46 @@ function bistro(str) {
         }
     }
 
+    function mySubStr(str, index, length){
+        if(length == undefined || length == null){
+            length = str.length - index
+        }
+        var nexStr = ""
+        if (typeof str === 'string'){
+            for(var i=index; i <= index + length - 1; i++){
+                nexStr += str[i]
+            }
+        } else {
+            console.log("Vos données ne sont pas de type string")
+            return;
+        }
+        return nexStr
+    }
+
+    function bigNumber(nb){
+        var result = '';
+        var xStr = `${nb}`;
+        var digitCount = xStr.indexOf('e') === -1 ? xStr.length : ((mySubStr(xStr, xStr.indexOf('e') + 1))*1 + 1)
+        for (var i = 1; i <= digitCount; i++) {
+          var mod = `${(nb % 10**i)}`;
+          var exponent = (mod.indexOf('e') === -1) ? 0 : (mod.substr(mod.indexOf('e')+1))*1;
+          if ((exponent === 0 && mod.length !== i) || (exponent > 0 && exponent !== i-1)) {
+            result = '0' + result;
+          }
+          else {
+            result = mod.charAt(0) + result;
+          }
+        }
+        console.log(result)
+        return result;
+    }
+
     var result = priorityCalc(elem)
+    result = bigNumber(result)
     result = round(result)
+    result = bigNumber(result)
     return result
 }
 
-var res = bistro("2.3*(2+3)")
+var res = bistro("(3+4)/7")
 console.log(res)
