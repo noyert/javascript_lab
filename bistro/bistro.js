@@ -46,38 +46,28 @@ function bistro(str) {
     }
 
     function spliceTab(tab, index, nbIndex, indexReplace) {
-        var tempTab = []
+        if(index+nbIndex > tab.length){
+            console.log("Votre nombre d'éléments à remplacer est supérieur à la taille du tableau")
+            return tab
+        }
+        console.log(tab)
         var newTab = []
         var counter = 0;
-        var cpt = 0
-        // for(var i=index; i<index+nbIndex; i++){
-        //     if(i==index){
-        //         tab[i] = indexReplace
-        //     } else {
-        //         tab[i] = null
-        //     }
-        // }
-        // console.log(tab)
-        // return tab
         for(var i=0; i<tab.length; i++){
-            if(i !== index){
-                tempTab[counter] = tab[i]
+            if(i == index) {
+                newTab[counter] = indexReplace
                 counter++
-            } else {
-                tempTab[counter] = indexReplace
+            } else if(i < index || i > index + nbIndex -1){
+                newTab[counter] = tab[i]
                 counter++
             }
         }
-        // for(var j=0; j<tempTab; j++){
-
-        // }
-        console.log(tempTab)
-        return tempTab
+        return newTab
     }
 
-    var tab = ['jio', 'dxfd', 'fr', 'KL', 'gre']
-    console.log(tab)
-    spliceTab(tab, 1, 3, 'fezko')
+    // var tab = ['jio', 'dxfd', 'fr', 'KL', 'gre']
+    // console.log(tab)
+    // spliceTab(tab, 1, 4, 'fezko')
 
     function round(res) {
         resString = `${res}`
@@ -106,7 +96,7 @@ function bistro(str) {
                 console.log("op ()")
                 console.log(elem[i + 2])
                 calc = calculate(elem[i + 1], elem[i + 2], elem[i + 3])
-                elem.splice(i, 5, calc)
+                elem = spliceTab(elem, i, 5, calc)
                 i = 0
             }
         }
@@ -115,7 +105,7 @@ function bistro(str) {
             if (elem[i] == '*' || elem[i] == '/' || elem[i] == '%') {
                 console.log("op1")
                 calc = calculate(elem[i - 1], elem[i], elem[i + 1])
-                elem.splice(i - 1, 3, calc)
+                elem = spliceTab(elem, i - 1, 3, calc)
                 i = 0
             }
         }
@@ -124,7 +114,7 @@ function bistro(str) {
             if (elem[i] == '+' || elem[i] == '-') {
                 console.log("op2")
                 calc = calculate(elem[i - 1], elem[i], elem[i + 1])
-                elem.splice(i - 1, 3, calc)
+                elem = spliceTab(elem, i - 1, 3, calc)
                 i = 0
             }
         }
