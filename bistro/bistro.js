@@ -26,6 +26,7 @@ function bistro(str) {
                     split.push("");
                 }
             }
+            console.log(split)
             return split
         }
     }
@@ -123,27 +124,32 @@ function bistro(str) {
                 tab.push(elem[i + 1])
             }
             var length = tab.length + 2
-            for (var i = 0; i < tab.length; i++) {
-                if (tab[i] == '*' || tab[i] == '/' || tab[i] == '%') {
-                    calc = calculate(tab[i - 1], tab[i], tab[i + 1])
-                    tab = spliceTab(tab, i - 1, 3, calc)
-                    i = 0
+            if(tab.length == 1){
+                elem = spliceTab(elem, elem.indexOf('('), length, tab[0])
+            } else {
+                for (var i = 0; i < tab.length; i++) {
+                    if (tab[i] == '*' || tab[i] == '/' || tab[i] == '%') {
+                        calc = calculate(tab[i - 1], tab[i], tab[i + 1])
+                        tab = spliceTab(tab, i - 1, 3, calc)
+                        i = 0
+                    }
                 }
-            }
-            for (var i = 0; i < tab.length; i++) {
-                if (tab[i] == '+' || tab[i] == '-') {
-                    calc = calculate(tab[i - 1], tab[i], tab[i + 1])
-                    tab = spliceTab(tab, i - 1, 3, calc)
-                    i = 0
+                for (var i = 0; i < tab.length; i++) {
+                    if (tab[i] == '+' || tab[i] == '-') {
+                        calc = calculate(tab[i - 1], tab[i], tab[i + 1])
+                        tab = spliceTab(tab, i - 1, 3, calc)
+                        i = 0
+                    }
                 }
+                elem = spliceTab(elem, elem.indexOf('('), length, calc)
             }
-            elem = spliceTab(elem, elem.indexOf('('), length, calc)
         }
         for (var i = 0; i < elem.length; i++) {
             if (elem[i] == '*' || elem[i] == '/' || elem[i] == '%') {
                 calc = calculate(elem[i - 1], elem[i], elem[i + 1])
                 elem = spliceTab(elem, i - 1, 3, calc)
                 i = 0
+                console.log(elem)
             }
         }
         for (var i = 0; i < elem.length; i++) {
@@ -208,7 +214,9 @@ function bistro(str) {
         let sum = "";
         let isNegative = false
 
-        if(str1 < str2){
+        strInt1 = str1*1
+        strInt2 = str2*1
+        if(strInt1 < strInt2){
             let temp = str2;
             str2 = str1;
             str1 = temp;
@@ -232,9 +240,9 @@ function bistro(str) {
 
         for (let i = 0; i < str1.length; i++) {
             // get ith digit of str1 from right, we store it in a
-            a = parseInt(str1.charAt(str1.length - 1 - i));
+            a = (str1.charAt(str1.length - 1 - i))*1;
             // get ith digit of str2 from right, we store it in b  
-            b = parseInt(str2.charAt(str2.length - 1 - i));
+            b = (str2.charAt(str2.length - 1 - i))*1;
             // make sure b is a number, (this is useful in case, str2 is shorter than str1   
             b = (b) ? b : 0;
             // add a and b along with carry, store it in a temp string.
@@ -273,18 +281,23 @@ function bistro(str) {
         if (isOperator(op)) {
             switch (op) {
                 case f.add:
+                    console.log("add")
                     result = add(a, b);
                     break;
                 case f.sub:
+                    console.log("sub")
                     result = sub(a, b);
                     break;
                 case f.div:
-                    result = a / b;
+                    console.log("div")
+                    result = `${(a / b)}`;
                     break;
                 case f.mlt:
-                    result = a * b;
+                    console.log("multiply")
+                    result = `${(a * b)}`;
                     break;
                 case f.mod:
+                    console.log("mod")
                     result = mod(a, b);
                     break;
                 default:
@@ -302,5 +315,5 @@ function bistro(str) {
     return result
 }
 
-var res = bistro("532-33")
+var res = bistro("(-5)/2")
 console.log(res)
